@@ -2,6 +2,7 @@ const defaultResult = 0;
 let currentResult = defaultResult;
 let currentStr = "";
 
+// check user input and process arithmetic
 function operation(op) {
   const enteredNum = parseInt(userInput.value);
   console.log(userInput.value, typeof userInput.value);
@@ -37,6 +38,7 @@ function operation(op) {
   outputResult(currentResult, currentStr);
 }
 
+// Create object that integrating all objects
 const addEventListeners = () => {
   const allBtn = [
     {
