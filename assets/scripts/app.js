@@ -3,17 +3,14 @@ let currentResult = defaultResult;
 let currentStr = "";
 
 // check user input and process arithmetic
-function operation(op) {
+function operation(op, btnName) {
   const enteredNum = parseInt(userInput.value);
-  console.log(userInput.value, typeof userInput.value);
-  console.log(enteredNum, typeof enteredNum);
   if (isNaN(enteredNum)) {
     outputResult(currentResult, "Invalid user input");
     return;
   }
 
   currentStr = `${currentResult} ${op} ${enteredNum}`;
-  console.log(currentStr);
   switch (op) {
     case "+": {
       currentResult += enteredNum;
@@ -36,7 +33,14 @@ function operation(op) {
   }
 
   outputResult(currentResult, currentStr);
+  operationLog(btnName, op, currentResult);
 }
+
+const operationLog = (clickedBtn, op, result) => {
+  console.log(
+    `Clicked button: ${clickedBtn} \nOperation: ${op}\nResult: ${result}`
+  );
+};
 
 // Create object that integrating all objects
 const addEventListeners = () => {
